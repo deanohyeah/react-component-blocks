@@ -1,0 +1,43 @@
+{
+  "extends": "airbnb",
+  "installedESLint": true,
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "rules": {
+    "class-methods-use-this": ["off"],
+    "import/extensions": ["off"],
+    "import/no-commonjs": [2],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "test/**/*.js"
+        ]
+      }
+    ],
+    "import/no-unresolved": ["off"],
+    "jsx-a11y/anchor-has-content": ["off"],
+    "jsx-a11y/href-no-hash": ["off"],
+    "jsx-a11y/label-has-for": ["off"],
+    "jsx-a11y/no-static-element-interactions": ["off"],
+    "new-cap": ["error", { "capIsNewExceptions": ["Given", "Then", "When"]}],
+    "no-param-reassign": [2, { "props": false }],
+    "no-underscore-dangle": ["off"],
+    "react/forbid-prop-types": ["off"],
+    "react/jsx-boolean-value": [2, "always"],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/no-array-index-key": ["off"],
+    "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
+    "react/require-default-props": ["off"],
+    "no-use-before-define": ["off"],
+    "semi": [2, "never"]
+  },
+  "env": {
+    "browser": true,
+    "mocha": true
+  }
+}
+
