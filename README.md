@@ -1,27 +1,34 @@
 # react component blocks
 
-Get the AMD module located at `react-component-blocks.js` and include it in your project.
-
 Here is a sample integration:
 
 ```js
-require.config({
-  paths: {
-    'react': 'vendor/bower_components/react/react',
-    'ReactComponentBlocks': 'react-component-blocks'
-  }
-});
+import React from 'react';
+import { render } from 'react-dom';
+import {Block, RenderBlock, clearState} from './block_component'
+import Child from './child_component'
 
-require(['react', 'ReactComponentBlocks'], function(React, ReactComponentBlocks) {
+const Child = () => {
+  return <div>
+    <Block type="head">jah</Block>
+    <Block type="head"><div>jlk</div></Block>
+    <Block type="head"><div>blah</div><div>now</div></Block>
+    <Block type="title"><div>blah</div><div>now</div></Block>
+  </div>
 
-  React.render(React.createElement(ReactComponentBlocks), document.getElementById('widget-container'));
+}
 
-});
+const Layout = () => {
+  const content = <div>
+    <h2>Start editing to see some magic happen {'\u2728'}</h2>
+    <RenderBlock type="head"/>
+    <h2><RenderBlock type="title"/></h2>
+    <Child/>
+  </div>
+  clearState()
+  return content
+}
+
+render(<Layout />, document.getElementById('root'));
 ```
 
-## Development
-
-* Development server `npm start`.
-* Continuously run tests on file changes `npm run watch-test`;
-* Run tests: `npm test`;
-* Build `npm run build`;
